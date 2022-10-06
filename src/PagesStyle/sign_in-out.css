@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: grid;
+  place-content: center;
+  height: 100vh;
+}
+form {
+  display: grid;
+  gap: 25px;
+  border: 1px solid gray;
+  padding: 10px;
+  border-radius: 10px;
+}
+input,
+button {
+  border-radius: 5px;
+  padding: 2px 5px;
+  cursor: pointer;
+}
+.form_content {
+  display: grid;
+  gap: 17px;
+  padding: 10px;
+}
+label {
+  display: grid;
+  gap: 5px;
+}
+h1 {
+  text-align: center;
+  font-family: "Alex Brush", cursive;
+  font-family: "Dancing Script", cursive;
+}
