@@ -61,7 +61,12 @@
 }
 .icon {
   cursor: pointer;
-  font-size: 20px;
+  font-size: 30px;
+  padding:5px
+}
+.clicked{
+  background-color: rgb(230, 36, 36);
+  color:white;
 }
 /* conversation.tsx style */
 .conversation {

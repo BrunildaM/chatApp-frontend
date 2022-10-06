@@ -26,9 +26,9 @@ export function Friends() {
             {navigate === "groups" ? <p> Your groups</p> : null}
 
             <div className="navigate">
-                <FaUserFriends className='icon' onClick={() => { setNavigate("friends") }} />
-                <BsChatSquareQuoteFill className='icon' onClick={() => { setNavigate("chats") }} />
-                <MdGroups className='icon' onClick={() => { setNavigate("groups") }} />
+                <FaUserFriends className={`icon ${navigate==="friends"?"clicked":""}` }onClick={() => { setNavigate("friends") }} />
+                <BsChatSquareQuoteFill className={`icon ${navigate==="chats"?"clicked":""}` } onClick={() => { setNavigate("chats") }} />
+                <MdGroups className={`icon ${navigate==="groups"?"clicked":""}` } onClick={() => { setNavigate("groups") }} />
             </div>
         </div>
     )
