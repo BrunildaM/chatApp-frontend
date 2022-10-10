@@ -1,10 +1,19 @@
+import { FiLogOut } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
+import { useStore } from '../../State/store';
 
-
-export function LeftMenu(){
-    return(
+export function LeftMenu() {
+    const navigate = useNavigate()
+    const signOutUser = useStore(state => state.signOutUser)
+    const currentUser=useStore(state=>state.currentUser)
+    return (
         <div className="left_menu">
-            <img src="https://images.pexels.com/photos/13727429/pexels-photo-13727429.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"/>
-            {/* <AiOutlineLogout/> */}
+            <img src={currentUser?.avatar} />
+            <FiLogOut  className="sign_out" onClick={() => {
+                signOutUser()
+                navigate("/sign_in")
+            }
+            } />
         </div>
     )
 }

@@ -23,7 +23,12 @@
   display: grid;
   place-content: center;
   border-right: 1px solid gray;
-  gap: 5px;
+  gap: 15px;
+  justify-content: center;
+}
+.sign_out{
+  font-size: 25px;
+  cursor: pointer;
 }
 /* friends.tsx style */
 .friends {
