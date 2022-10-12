@@ -32,5 +32,8 @@ export type State = {
   currentUser: User | null,
   signInUser:(formData:any,navigate:any)=>void
 
-  signOutUser:()=>void
+  errors: [],
+  setErrors:()=>void,
+
+  signOutUser:()=>void,
 }

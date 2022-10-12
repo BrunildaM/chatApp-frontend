@@ -14,6 +14,8 @@ export const useStore = create < State > ((set, get) => ({
     },
 
     currentUser: null,
+    errors:[],
+    setErrors:()=>set({errors:[]}),
 
     signInUser: (formData : any, navigate : any) => {
         fetch(`http://localhost:4444/sign-in`, {
@@ -23,15 +25,20 @@ export const useStore = create < State > ((set, get) => ({
             },
             body: JSON.stringify(formData)
         }).then(resp => resp.json()).then(data => {
-            set({currentUser: data.user})
-            localStorage.token = data.token
-            navigate("/chat")
+            if(data.user){
+                set({currentUser: data.user})
+                localStorage.token = data.token
+                navigate("/chat")
+            }
+            else{
+                set({errors:data.errors})
+            }
         })
     },
 
     signOutUser: () => {
         localStorage.removeItem("token")
         set({currentUser: null})
-    }
+    },
 
 }))
