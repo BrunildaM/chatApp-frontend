@@ -7,7 +7,7 @@ export function SignIn() {
     const signInUser = useStore(state => state.signInUser)
     const navigate = useNavigate()
 
-    const errors=useStore(state=>state.errors)
+    const signInErrors=useStore(state=>state.signInErrors)
     useEffect(() => {
         if (localStorage.token) {
           fetch('http://localhost:4444/validate', {
@@ -43,7 +43,7 @@ export function SignIn() {
                     <input placeholder="Enter your email" type="email" name="email" required />
                     <input placeholder="Enter your passwaord" type="password" name="password"required />
                     <p> No account? <Link to="/sign_out"> Create one!</Link></p>
-                    {errors? errors.map(message=><p className="error">*{message}*</p>):null}
+                    {signInErrors? signInErrors.map(message=><p className="error">*{message}*</p>):null}
                     <button >Sign In</button>
                 </div>
             </form>

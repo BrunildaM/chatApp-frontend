@@ -14,8 +14,9 @@ export const useStore = create < State > ((set, get) => ({
     },
 
     currentUser: null,
-    errors:[],
-    setErrors:()=>set({errors:[]}),
+    signInErrors:[],
+    signUpErrors:[],
+    setErrors:()=>set({signInErrors:[]}),
 
     signInUser: (formData : any, navigate : any) => {
         fetch(`http://localhost:4444/sign-in`, {
@@ -31,7 +32,7 @@ export const useStore = create < State > ((set, get) => ({
                 navigate("/chat")
             }
             else{
-                set({errors:data.errors})
+                set({signInErrors:data.errors})
             }
         })
     },
@@ -39,6 +40,25 @@ export const useStore = create < State > ((set, get) => ({
     signOutUser: () => {
         localStorage.removeItem("token")
         set({currentUser: null})
+    },
+
+    signUpUser: (formData : any, navigate : any) => {
+        fetch(`http://localhost:4444/sign-up`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        }).then(resp => resp.json()).then(data => {
+            if(data.user){
+                set({currentUser: data.user})
+                localStorage.token = data.token
+                navigate("/chat")
+            }
+            else{
+                set({signUpErrors:data.errors})
+            }
+        })
     },
 
 }))

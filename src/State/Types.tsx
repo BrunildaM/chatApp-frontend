@@ -30,9 +30,11 @@ export type State = {
   getUsersFromServer: () => void
 
   currentUser: User | null,
-  signInUser:(formData:any,navigate:any)=>void
+  signInUser:(formData:any,navigate:any)=>void,
+  signUpUser:(formData:any,navigate:any)=>void
 
-  errors: [],
+  signInErrors: [],
+  signUpErrors:[],
   setErrors:()=>void,
 
   signOutUser:()=>void,

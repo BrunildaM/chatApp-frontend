@@ -41,3 +41,8 @@ h1 {
   width:200px;
   word-wrap: break-word;
 }
+.checkbox{
+  display:grid;
+  grid-auto-flow: column;
+  justify-items: center;
+}
